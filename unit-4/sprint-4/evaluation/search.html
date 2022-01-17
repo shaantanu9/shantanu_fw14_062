@@ -28,7 +28,9 @@ searchbox(searchquery)
 
 async function searchbox(searchquery){
 
-let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
+// let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
+   let apikey = '3e15ad33efae754d7e3030b008978645' // shantanu8
+
 
  fetch(`https://gnews.io/api/v4/search?q=${searchquery}&token=${apikey}&country=in&lang=en`)
  .then(function (response) {
@@ -45,11 +47,27 @@ function searchPage(articles) {
 
 document.getElementById('main').innerHTML = '';
 
-
  //add append logic here
-articles.forEach(({image, title,description})=>{
+articles.forEach(({image, title,description, content})=>{
+
+qid =  Math.random()*100000000000000000
+
+let articlesStorage = JSON.parse(localStorage.getItem('articles'))
+
+if(articlesStorage==null){
+  articlesStorage =[];
+}
+
+let obj={
+  qid, title, description, content,image
+}
+
+articlesStorage.push(obj)
+
+localStorage.setItem('articles', JSON.stringify(articlesStorage))
 
 // console.log(image,title,description)
+
 let single_articleDiv = document.createElement("div")
 
 single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
@@ -61,7 +79,10 @@ img.classList.add("rounded","w-[400px]")
 
 let titleH3 = document.createElement('h3')
 titleH3.innerHTML = title
+titleH3.setAttribute('id',qid)
 titleH3.classList.add("text-xl","font-bold")
+
+titleH3.setAttribute("onclick", 'fullnews(this.id)' ) 
 
 console.log(titleH3)
 
@@ -78,8 +99,13 @@ document.getElementById('main').append(single_articleDiv)
 
 }
 
-window.title = searchquery;
+function fullnews(id) {
 
+console.log(id)
+
+window.location.href = `./news.html?${id}`
+
+}
 
 </script>
 

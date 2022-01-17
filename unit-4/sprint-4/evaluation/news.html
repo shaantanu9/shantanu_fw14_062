@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
   </head>
 
   <body>
@@ -34,12 +36,29 @@
   <script type="module">
 
     import sidebar from './components/sidebar.js' 
-    document.querySelector('#sidebar').innerHTML = sidebar()
-    
-        import { apiCall, appendArticles } from './scripts/main.js';
-    
-        apiCall();
-        
+    document.querySelector('#sidebar').innerHTML = sidebar()        
       </script>
+
+<script>
+
+let id = window.location.href.split('?')[1];
+
+function getnews(id) {
+  
+  let articles = JSON.parse(window.localStorage.getItem('articles'))
+
+  for(let x = 0; x < articles.length;x++) {
+    if(articles[x].qid==id) {
+      document.getElementById('headline').innerHTML = articles[x].title;
+      document.getElementById('img').innerHTML = articles[x].image;
+      document.getElementById('headline').innerHTML = articles[x].content;
+    }
+  }
+
+
+}
+
+
+</script>
 
 </html>
