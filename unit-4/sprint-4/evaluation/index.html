@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Home</title>
+  </head>
+
+  <body>
+    <div id="container" style="display: flex;" >
+      <div id="sidebar" class="bg-red-100" >
+
+        <!--DO NOT CHANGE THIS ID's-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+
+
+      </div>
+    </div>
+  </body>
+
+  <script src="components/sidebar.js"></script>
+  <script type="module">
+
+import sidebar from './components/sidebar.js' 
+document.querySelector('#sidebar').innerHTML = sidebar()
+
+    import { apiCall, appendArticles } from './scripts/main.js';
+
+    apiCall();
+
+  </script>
+</html>
