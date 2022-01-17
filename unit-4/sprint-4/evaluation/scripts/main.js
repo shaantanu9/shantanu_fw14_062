@@ -4,7 +4,7 @@ async function apiCall(url = "") {
 
 //    let apikey = 'dfe97463e2a4e502f1b7c6667e00af9e';
 
-   let apikey = 'c94e97c7efe7507094508ab27e1fea3b' //shantanu3
+   let apikey = 'd6df736322f22e844f9c5b1cd07ea0d2' //shantanu3
 
 //    let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
 
@@ -29,37 +29,52 @@ function appendArticles(articles, main="") {
 
 document.getElementById('main').innerHTML = '';
 
+ //add append logic here
+articles.forEach(({image, title,description, content})=>{
 
-    //add append logic here
-    articles.forEach(({image, title,description, content})=>{
+qid =  Math.random()*100000000000000000
 
-    // console.log(image,title,description)
-    let single_articleDiv = document.createElement("div")
+let articlesStorage = JSON.parse(localStorage.getItem('articles'))
 
-    single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
+if(articlesStorage==null){
+  articlesStorage =[];
+}
 
-    let img = document.createElement('img')
-    img.src = image;
-    img.classList.add("rounded","w-[400px]")
+let obj={
+  qid, title, description, content,image
+}
 
+articlesStorage.push(obj)
 
-    let titleH3 = document.createElement('h3')
-    titleH3.innerHTML = title
-    titleH3.classList.add("text-xl","font-bold")
+localStorage.setItem('articles', JSON.stringify(articlesStorage))
 
+// console.log(image,title,description)
 
-    let descriptionP = document.createElement('p')
-    descriptionP.innerHTML = description
+let single_articleDiv = document.createElement("div")
 
-    let contentP = document.createElement('p')
-    contentP.innerHTML = content
+single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
 
-    single_articleDiv.append(img,titleH3,descriptionP,contentP)
-
-    document.getElementById('main').append(single_articleDiv)
+let img = document.createElement('img')
+img.src = image;
+img.classList.add("rounded","w-[400px]")
 
 
-})    
+let titleH3 = document.createElement('h3')
+titleH3.innerHTML = title
+titleH3.setAttribute('id',qid)
+titleH3.classList.add("text-xl","font-bold")
+
+titleH3.setAttribute("onclick", 'fullnews(this.id)' ) 
+
+console.log(titleH3)
+
+let descriptionP = document.createElement('p')
+descriptionP.innerHTML = description
+
+single_articleDiv.append(img,titleH3,descriptionP)
+
+document.getElementById('main').append(single_articleDiv)
+})
 
 
 }
