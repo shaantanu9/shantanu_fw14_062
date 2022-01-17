@@ -31,4 +31,15 @@
     </div>
   </body>
 
+  <script type="module">
+
+    import sidebar from './components/sidebar.js' 
+    document.querySelector('#sidebar').innerHTML = sidebar()
+    
+        import { apiCall, appendArticles } from './scripts/main.js';
+    
+        apiCall();
+        
+      </script>
+
 </html>

@@ -14,10 +14,10 @@ return `<nav  class=" w-[300px] bg-red-100 ml-2 space-y-2 ">
           <button id="searchbtn" class="bg-blue-300 p-2 rounded-full w-full" >Search</button>
 
           <div class="grid gap-3" >
-            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500">StartUp</button>
-            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500">NewsLetter</button>
-            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500">Audio</button>
-            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500">Video</button>
+            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500" onclick="apiCall('world')">World</button>
+            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500" onclick="apiCall('science')"  >Tcience</button>
+            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500" onclick="apiCall('technology')"  >Technology</button>
+            <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500" onclick="apiCall('sports')"  >Sports</button>
           </div>
         </nav>`
 

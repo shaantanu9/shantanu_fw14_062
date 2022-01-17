@@ -1,6 +1,6 @@
 
 
-async function apiCall(url) {
+async function apiCall(url = "") {
 
 //    let apikey = 'dfe97463e2a4e502f1b7c6667e00af9e';
 
@@ -12,7 +12,7 @@ async function apiCall(url) {
 
     //add api call logic here
 
-    fetch(`https://gnews.io/api/v4/top-headlines?&token=${apikey}&country=in&lang=en`)
+    fetch(`https://gnews.io/api/v4/top-headlines?&token=${apikey}&topic=${url}&country=in&lang=en`)
     .then(function (response) {
         return response.json();
     })
@@ -26,6 +26,9 @@ async function apiCall(url) {
 
 
 function appendArticles(articles, main="") {
+
+document.getElementById('main').innerHTML = '';
+
 
     //add append logic here
 articles.forEach(({image, title,description})=>{
