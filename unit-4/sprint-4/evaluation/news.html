@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SingleNews</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
@@ -13,20 +13,25 @@
   <body>
     <!--DO NOT CHANGE THIS ID's-->
 
-    <div id="container">
-      <div id="sidebar">
+    <div id="container" style="display: flex;">
+      <div id="sidebar"  class="bg-red-100" >
         <!--add your sidebar component here-->
       </div>
 
       <div id="main">
         <div id="headline">
           <!--add headline here-->
+          <p>Heading Get Here testing as API is not working </p>
         </div>
         <img id="img" src="" alt="" />
         <!--show news image here-->
+        <p>Image Get Here testing as API is not working </p>
+
 
 
         <div id="content">
+          <p>Content get here testing as API is not working </p>
+
           <!--add news content here-->
         </div>
       </div>
@@ -42,9 +47,10 @@
 <script>
 
 let id = window.location.href.split('?')[1];
+ getnews(id)
 
 function getnews(id) {
-  
+  console.log(id)
   let articles = JSON.parse(window.localStorage.getItem('articles'))
 
   for(let x = 0; x < articles.length;x++) {
