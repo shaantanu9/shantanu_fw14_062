@@ -31,30 +31,32 @@ document.getElementById('main').innerHTML = '';
 
 
     //add append logic here
-articles.forEach(({image, title,description})=>{
+    articles.forEach(({image, title,description, content})=>{
 
-// console.log(image,title,description)
-let single_articleDiv = document.createElement("div")
+    // console.log(image,title,description)
+    let single_articleDiv = document.createElement("div")
 
-single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
+    single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
 
-let img = document.createElement('img')
-img.src = image;
-img.classList.add("rounded","w-[400px]")
+    let img = document.createElement('img')
+    img.src = image;
+    img.classList.add("rounded","w-[400px]")
 
 
-let titleH3 = document.createElement('h3')
-titleH3.innerHTML = title
-titleH3.classList.add("text-xl","font-bold")
+    let titleH3 = document.createElement('h3')
+    titleH3.innerHTML = title
+    titleH3.classList.add("text-xl","font-bold")
 
-console.log(titleH3)
 
-let descriptionP = document.createElement('p')
-descriptionP.innerHTML = description
+    let descriptionP = document.createElement('p')
+    descriptionP.innerHTML = description
 
-single_articleDiv.append(img,titleH3,descriptionP)
+    let contentP = document.createElement('p')
+    contentP.innerHTML = content
 
-document.getElementById('main').append(single_articleDiv)
+    single_articleDiv.append(img,titleH3,descriptionP,contentP)
+
+    document.getElementById('main').append(single_articleDiv)
 
 
 })    
@@ -62,4 +64,16 @@ document.getElementById('main').append(single_articleDiv)
 
 }
 
-export { apiCall, appendArticles }
+// function  searchterm() {
+
+//   let searchquery =  document.getElementById('searchbar').value
+
+//   window.location.href = './search.html'
+//     searchbox(searchquery)
+// }
+
+
+
+
+
+export { apiCall, appendArticles}

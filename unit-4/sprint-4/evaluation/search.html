@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SearchPage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
   </head>
 
   <body>
@@ -15,25 +17,70 @@
       <!-- show headline, description and image -->
 
 
-
-      Wrong -> <a href="/Users/jonny/Desktop/misc/jugnu-tester/template-U3C4/Template-U3C4/news.html"></a>
-
-
-      Correct -> <a href="/news.html"></a>
-
-
     </div>
   </body>
 
-  <script type="module">
+<script >
 
-    import sidebar from './components/sidebar.js' 
-    document.querySelector('#sidebar').innerHTML = sidebar()
-    
-        import { apiCall, appendArticles } from './scripts/main.js';
-    
-        apiCall();
-    
-      </script>
+searchquery = window.location.href.split('?')[1]
+
+searchbox(searchquery)
+
+async function searchbox(searchquery){
+
+let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
+
+ fetch(`https://gnews.io/api/v4/search?q=${searchquery}&token=${apikey}&country=in&lang=en`)
+ .then(function (response) {
+     return response.json();
+ })
+ .then(function (data) {
+     console.log(data.articles);
+     searchPage(data.articles)
+ });
+
+}
+
+function searchPage(articles) {
+
+document.getElementById('main').innerHTML = '';
+
+
+ //add append logic here
+articles.forEach(({image, title,description})=>{
+
+// console.log(image,title,description)
+let single_articleDiv = document.createElement("div")
+
+single_articleDiv.classList.add("rounded","shadow","mx-4","my-4")
+
+let img = document.createElement('img')
+img.src = image;
+img.classList.add("rounded","w-[400px]")
+
+
+let titleH3 = document.createElement('h3')
+titleH3.innerHTML = title
+titleH3.classList.add("text-xl","font-bold")
+
+console.log(titleH3)
+
+let descriptionP = document.createElement('p')
+descriptionP.innerHTML = description
+
+single_articleDiv.append(img,titleH3,descriptionP)
+
+document.getElementById('main').append(single_articleDiv)
+
+
+})    
+
+
+}
+
+window.title = searchquery;
+
+
+</script>
 
 </html>

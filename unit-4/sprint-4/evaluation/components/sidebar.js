@@ -11,7 +11,7 @@ return `<nav  class=" w-[300px] bg-red-100 ml-2 space-y-2 ">
             <button class=" bg-red-300 rounded-lg p-1 text-blue-800" >Signup</button>
           </div>
           <input type="text" class="rounded-xl pl-2 border h-12 w-full" name="search" id ="searchbar"  placeholder="Search News" id="searchinput" value="">
-          <button id="searchbtn" class="bg-blue-300 p-2 rounded-full w-full" >Search</button>
+          <button id="searchbtn" class="bg-blue-300 p-2 rounded-full w-full" onclick="searchterm()" >Search</button>
 
           <div class="grid gap-3" >
             <button class=" bg-gray-300 rounded p-3 font-bold text-blue-500" onclick="apiCall('world')">World</button>
