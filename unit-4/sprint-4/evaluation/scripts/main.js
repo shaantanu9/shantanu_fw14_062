@@ -4,7 +4,7 @@ async function apiCall(url = "") {
 
 //    let apikey = 'dfe97463e2a4e502f1b7c6667e00af9e';
 
-   let apikey = 'd6df736322f22e844f9c5b1cd07ea0d2' //shantanu3
+   let apikey = 'bdc134b65b995521e5a2f95823c7ff31' //shantanu3
 
 //    let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
 
@@ -32,7 +32,7 @@ document.getElementById('main').innerHTML = '';
  //add append logic here
 articles.forEach(({image, title,description, content})=>{
 
-qid =  Math.random()*100000000000000000
+let qid =  Math.random()*100000000000000000
 
 let articlesStorage = JSON.parse(localStorage.getItem('articles'))
 

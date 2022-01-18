@@ -56,7 +56,7 @@ function getnews(id) {
   for(let x = 0; x < articles.length;x++) {
     if(articles[x].qid==id) {
       document.getElementById('headline').innerHTML = articles[x].title;
-      document.getElementById('img').innerHTML = articles[x].image;
+      document.getElementById('img').src = articles[x].image;
       document.getElementById('headline').innerHTML = articles[x].content;
     }
   }

@@ -31,7 +31,7 @@ async function searchbox(searchquery){
 // let apikey = 'a67fce3d70138121e1059cefe6e02341' //shantnau4
   //  let apikey = 'd6df736322f22e844f9c5b1cd07ea0d2' // shantanu8
 
-  let apikey = '5084d89a11b2c9531b1468a765688ffa'
+  let apikey = 'bdc134b65b995521e5a2f95823c7ff31'
 
 
  fetch(`https://gnews.io/api/v4/search?q=${searchquery}&token=${apikey}&country=in&lang=en`)
@@ -52,7 +52,7 @@ document.getElementById('main').innerHTML = '';
  //add append logic here
 articles.forEach(({image, title,description, content})=>{
 
-qid =  Math.random()*100000000000000000
+let qid =  Math.random()*100000000000000000
 
 let articlesStorage = JSON.parse(localStorage.getItem('articles'))
 
