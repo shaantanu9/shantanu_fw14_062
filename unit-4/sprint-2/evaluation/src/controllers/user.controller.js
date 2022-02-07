@@ -12,6 +12,18 @@ const crudController = require('./crud.controller')
 
 router.get('',crudController(User).getall)
 
+//post
+
+router.post('',async(req, res)=>{
+
+    try {
+        const user = User.create(req.body)
+        res.send(user)
+    } catch (error) {
+        res.send(error.message)
+    }
+
+})
 
 
 // Exports

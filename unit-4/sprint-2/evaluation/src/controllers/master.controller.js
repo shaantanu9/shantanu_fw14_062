@@ -13,6 +13,8 @@ const crudController = require('./crud.controller')
 router.get('',crudController(User).getall)
 
 
+//
+
 
 // Exports
 

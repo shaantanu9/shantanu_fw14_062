@@ -17,7 +17,7 @@ app.use(express.json());
 
 // controllers Routing
 
-app.use('/users',userController);
+app.use('/user',userController);
 app.use('/branch',branchController);
 app.use('/master',masterController);
 app.use('/saving',userController);
