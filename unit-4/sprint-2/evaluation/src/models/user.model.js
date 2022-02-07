@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     "email": {required:true, type: String },
     "address": { required:true, type: String },
     "gender": { required:false, type: String, default:'Female'},
-    "type": {required:false, default:"Customer"}
+    // "type": {required:false, default:"Customer"}
 
 
 },
