@@ -12,18 +12,11 @@ const crudController = require('./crud.controller')
 
 router.get('',crudController(Fixed).getall)
 
-// post routes
+// Create a Fixed Account
 
-router.post('', async (req,res) => {
+router.post('',crudController(Fixed).createAccount)
 
-    try {
-        const fixed = await Fixed.create(req.body);
-        res.send(fixed);
-    } catch (error) {
-        res.send(error.message)        
-    }
 
-})
 
 
 // Exports

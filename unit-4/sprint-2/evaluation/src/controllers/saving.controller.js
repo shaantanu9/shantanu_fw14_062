@@ -3,16 +3,18 @@ const express = require('express');
 const router = express.Router();
 
 // Model and Schema
-const User = require('../models/user.model')
+const Saving = require('../models/savingAccount.model')
 
 // Export CrudController
 const crudController = require('./crud.controller')
 
 // Routers
 
-router.get('',crudController(User).getall)
+router.get('',crudController(Saving).getall)
 
+// Create Saving Account
 
+router.post('',crudController(Saving).createAccount)
 
 // Exports
 

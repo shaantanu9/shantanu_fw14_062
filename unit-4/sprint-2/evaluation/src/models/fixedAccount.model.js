@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const fixedSchema = new mongoose.Schema({ 
 
-    "account_number":{  required:true, type: Number, unique: true},
+    "account_number":{  required:true, type: Number, unique: false},
+    // "account_number":{  required:true, type: Number, unique: true},
     "balance":{  required:true, type: Number }, 
     "interestRate":{  required:true, type: Number }, 
     "startDate":{  required:true, type: String }, 

@@ -13,7 +13,9 @@ const crudController = require('./crud.controller')
 router.get('',crudController(Master).getall)
 
 
-//
+// Create A Master Account
+
+// router.post('',crudController(Master).createAccount)
 
 
 // Exports

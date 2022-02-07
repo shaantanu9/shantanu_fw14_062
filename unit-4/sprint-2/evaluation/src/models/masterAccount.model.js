@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 const masterSchema = new mongoose.Schema({ 
 
-    "balance":{required:true,type:String},
-    "firstName": {required:true, type: String},
-
-    "user_id": {required:true,type:mongoose.Schema.Types.ObjectId},
-    "branch_id": {required:true,type:mongoose.Schema.ObjectId,ref:"user"}
+    "balance":{required:false,type:String},
+    "user_id": {required:true,type:mongoose.Schema.Types.ObjectId, unique:true},
+    "branch_id": {required:false,type:mongoose.Schema.ObjectId,ref:"user"}
 },
 {
     versionKey:false, timestamps:true
