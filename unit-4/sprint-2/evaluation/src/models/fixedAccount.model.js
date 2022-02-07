@@ -8,7 +8,8 @@ const fixedSchema = new mongoose.Schema({
     "interestRate":{  required:true, type: Number }, 
     "startDate":{  required:true, type: String }, 
     "maturityDate":{ required:true, type: String },
-    "user_id":{ required:true, type: mongoose.Schema.Types.ObjectId,ref:"user"}
+    "relationShipManager":{ required: false, type: mongoose.Schema.Types.ObjectId, ref:"user"},
+    "user_id":{ required:true, type: mongoose.Schema.Types.ObjectId,ref:"user"},
 
 },
 {

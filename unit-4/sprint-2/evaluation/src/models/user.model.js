@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     "gender": { required:false, type: String, default:'Female'},
     "type2": {required:false, default:"Customer",type:String},
     "type": {required:false, type:mongoose.Schema.Types.ObjectId},
-
+    
 
 },
 {

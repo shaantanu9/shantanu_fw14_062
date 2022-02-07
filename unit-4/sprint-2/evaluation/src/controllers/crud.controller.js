@@ -2,7 +2,8 @@ const getall = (model) => async(req, res)=>{
     // console.log(model, typeof(model));
 
     try{
-        const user = await model.find().populate({path:'user_id', select:{"firstName":1}}).lean();
+        const user = await model.find().populate('user_id').lean();
+        // const user = await model.find().populate({path:'user_id', select:{"firstName":1}}).lean();
         res.send(user);
     }catch(err){
         res.send(err.message);
