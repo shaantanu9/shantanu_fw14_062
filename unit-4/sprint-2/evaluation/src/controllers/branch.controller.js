@@ -10,7 +10,14 @@ const crudController = require('./crud.controller')
 
 // Routers
 
-router.get('',crudController(Branch).getall)
+router.get('',async(req,res)=>{
+    try{
+        const user = await Branch.find().lean();
+        res.send(user);
+    }catch(err){
+        res.send(err.message);
+    }   
+})
 
 
 
