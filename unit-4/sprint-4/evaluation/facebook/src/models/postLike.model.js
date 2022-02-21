@@ -7,5 +7,11 @@ PostlikeSchema = new mongoose.Schema({
     "versionKey":false, timestamps:true
 })
 
+// PostLikeSchema.pre("save", function (next) {
+
+//   if(postlike)
+//    return next();
+
+// })
 module.exports =  mongoose.model('postlike',PostlikeSchema)
 
