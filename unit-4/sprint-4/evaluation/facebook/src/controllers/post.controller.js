@@ -30,13 +30,17 @@ router.post('/upload', upload.single("pic"), async(req, res) => {
 router.get('',async(req, res)=>{
 
 
+var pageno = req.query.pageno
+
+var showfrom = (pageno-1)*10    
 
 const total =  await Post.count()
 const totalPages = Math.ceil(+total/10)
 
-const post = await Post.find().
+const post = await Post.find().skip(showfrom).limit(10)
 
-res.json({total,totalPages, re:req.query})
+// res.json({total,totalPages, re:req.query, pageno, showfrom})
+res.send(post)
 
 
 })
