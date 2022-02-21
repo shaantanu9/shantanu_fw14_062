@@ -1,18 +1,13 @@
-const mongoose = require('mongoose')
-const joi = require('joi')
-const joigoose = require('joigoose')(mongoose)
+const mongoose = require('mongoose');   
 
-const joiSchema = joi.object().keys({
-
-        "body": joi.string(),
-        "likes": joi.number().default(0),
-        "pic": joi.string().required()
-}, {
-        timestamps:true
+postSchema = new mongoose.Schema({ 
+    "body":{type:String, required:true, unique:true},
+    "like":{type:Number, required:true},
+    "pic":{type:String, required:true}
+    "user_id": {type:mongoose.Schema.Types.ObjectId,ref:'user',required:false}
+    },{
+    "versionKey":false, timestamps:true
 })
 
-const PostSchema = new mongoose.Schema(joigoose.convert(joiSchema))
+module.exports =  mongoose.model('post',postSchema)
 
-// mongoose.model('Post', mongooseSchema)
-
-module.exports = mongoose.model("post",PostSchema)

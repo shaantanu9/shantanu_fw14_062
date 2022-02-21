@@ -8,8 +8,10 @@ const connect = require('./configs/db.js');
 
 const userController = require('./controllers/user.controller');
 const postController = require('./controllers/post.controller');
+const commentController = require('./controllers/comment.controller');
 
 /////////////////
+app.use('/comment', commentController);
 
 app.use('/user', userController);
 app.use('/post', postController);
