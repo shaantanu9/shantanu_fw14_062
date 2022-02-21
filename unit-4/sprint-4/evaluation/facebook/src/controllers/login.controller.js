@@ -8,13 +8,13 @@ const newToken = (user) => {
   return (token = jwt.sign({ user }, process.env.JWT_SECRET_KEY));
 };
 
-const register = async (req, res) => {
+const signup = async (req, res) => {
   try {
     // Find User Exists
     let user = await User.findOne({ email: req.body.email }).lean();
 
-    if (user)
-      return res.status(400).send({ message: "User Exist Try another Email" });
+    if (!user)
+      return res.status(400).send({ message: "First Create Account and Then Login" });
 
     console.log(req.body.password, "pass");
 
@@ -54,6 +54,6 @@ const login = async (req, res) => {
 };
 
 module.exports = {
-  register,
+  signup,
   login,
 };
