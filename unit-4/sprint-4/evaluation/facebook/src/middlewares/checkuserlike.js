@@ -8,7 +8,8 @@ module.exports = async(req, res, next) => {
         return next();
     }
     else{
-        await PostLike.deleteOne({user_id:req.user.id})
+        await PostLike.find({user_id:req.user.id}).remove().exec()
+        // await PostLike.deleteOne({user_id:req.user.id})
         return res.send("You dislike the Post")
     }
 };
