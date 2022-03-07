@@ -8,8 +8,9 @@ function App() {
 
     <Book item ={"Book"}/>
     <Pen item ={"Pen"}/>
-    <Notebook item ={"NoteBook"}/>
-    <Inkpen item ={"InkPen"}/>
+    <Notebook item ={"Notebook"}/>
+    <Inkpen item ={"Inkpen"}/>
+    <div className="total">1</div>
 
     </div>
   );
