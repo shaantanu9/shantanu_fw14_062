@@ -1,5 +1,5 @@
 {
-  "name": "grocerylist",
+  "name": "rent",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,8 @@
   },
   "scripts": {
     "server": "fuser -k 3002/tcp || json-server --port 3002 --watch db.json",
-    "sys": "fuser -k 3000/tcp || sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p",
-    "start": " fuser -k 3000/tcp || react-scripts start",
+    "kill": "fuser -k 3000/tcp || sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
